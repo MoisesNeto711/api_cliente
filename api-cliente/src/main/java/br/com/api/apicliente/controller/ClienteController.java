@@ -19,12 +19,12 @@ public class ClienteController {
     @Autowired //pede ao Spring injetar uma instância se necessário
     private ClienteService clienteservice;//injetando o serviço
 
-    @GetMapping(name = "/cliente/{id}")//tipo de verbo HTTP
+    @GetMapping(value = "/cliente/{id}")//tipo de verbo HTTP
     public Cliente getCliente(@PathVariable Long id){
         return clienteservice.getCliente(id);
     }
 
-    @GetMapping(name = "/clientes")//ver todos os cliente
+    @GetMapping(value = "/clientes")//ver todos os cliente
     public ResponseEntity<List<Cliente>> getClientes(){//recebe uma lista de clientes
         List<Cliente> clienteList= clienteservice.getClientes();//direcionando para receber do serviço
         if(clienteList.isEmpty()){
@@ -33,7 +33,6 @@ public class ClienteController {
             return ResponseEntity.ok(clienteList);
         }
     }
-
     @PostMapping(value = "/cliente/salvar") // Preciso saber como faz
     public ResponseEntity<Cliente> createClient(@RequestBody Cliente cliente){
         try {
