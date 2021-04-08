@@ -32,6 +32,6 @@ public class ClienteServiceTest {
 
         List<Cliente> clienteList = clienteService.verificarClientesMasculinos(clientes);
 
-        Assertions.assertEquals(0, clienteList.size());
+        Assertions.assertEquals(1, clienteList.size());
     }
 }
